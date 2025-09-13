@@ -26,6 +26,27 @@ class Order
     #[ORM\Column]
     private ?float $total = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $paymentMethod = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $paymentStatus = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?bool $isPending = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?bool $isShipped = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?bool $isDelivered = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?bool $isProcessed = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $orderReference = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -75,6 +96,90 @@ class Order
     public function setTotal(float $total): static
     {
         $this->total = $total;
+
+        return $this;
+    }
+
+    public function getPaymentMethod(): ?string
+    {
+        return $this->paymentMethod;
+    }
+
+    public function setPaymentMethod(string $paymentMethod): static
+    {
+        $this->paymentMethod = $paymentMethod;
+
+        return $this;
+    }
+
+    public function getPaymentStatus(): ?string
+    {
+        return $this->paymentStatus;
+    }
+
+    public function setPaymentStatus(string $paymentStatus): static
+    {
+        $this->paymentStatus = $paymentStatus;
+
+        return $this;
+    }
+
+    public function isPending(): ?bool
+    {
+        return $this->isPending;
+    }
+
+    public function setIsPending(?bool $isPending): static
+    {
+        $this->isPending = $isPending;
+
+        return $this;
+    }
+
+    public function isShipped(): ?bool
+    {
+        return $this->isShipped;
+    }
+
+    public function setIsShipped(?bool $isShipped): static
+    {
+        $this->isShipped = $isShipped;
+
+        return $this;
+    }
+
+    public function isDelivered(): ?bool
+    {
+        return $this->isDelivered;
+    }
+
+    public function setIsDelivered(?bool $isDelivered): static
+    {
+        $this->isDelivered = $isDelivered;
+
+        return $this;
+    }
+
+    public function isProcessed(): ?bool
+    {
+        return $this->isProcessed;
+    }
+
+    public function setIsProcessed(?bool $isProcessed): static
+    {
+        $this->isProcessed = $isProcessed;
+
+        return $this;
+    }
+
+    public function getOrderReference(): ?string
+    {
+        return $this->orderReference;
+    }
+
+    public function setOrderReference(string $orderReference): static
+    {
+        $this->orderReference = $orderReference;
 
         return $this;
     }
