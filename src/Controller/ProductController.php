@@ -11,6 +11,6 @@ final class ProductController extends AbstractController
     #[Route('/product', name: 'app_product')]
     public function index(): Response
     {
-        return $this->render('product/index.html.twig');
+        return $this->render('admin/product/index.html.twig');
     }
 }
