@@ -47,8 +47,18 @@
             if (file) {
                 const allowedType = ['image/jpg', 'image/jpg', 'image/png', 'image/gif', 'image/webp'];
                 if (!allowedType.includes(file.type)) {
-                    message.textContent = 'allowedType'
+                    message.textContent = 'Please select a valid image file (PNG, JPEG, PNG, GIF or WEBP).';
+                    message.classList.remove('hidden');
+                    input.value = '';
+                    return;
                 }
+
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.classList.remove('hidden');
+                }
+                reader.readAsDataURL(file);
             }
         }
     </script>
