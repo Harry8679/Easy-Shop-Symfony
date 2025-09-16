@@ -40,14 +40,15 @@
             const preview = document.getElementById('imagePreview');
             const message = document.getElementById('previewMessage');
 
-            preview.classList.add('hiddden');
-            message.classList.add('hiddden');
+            // reset
+            preview.classList.add('hidden');
+            message.classList.add('hidden');
             message.textContent = '';
 
             if (file) {
-                const allowedType = ['image/jpg', 'image/jpg', 'image/png', 'image/gif', 'image/webp'];
+                const allowedType = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
                 if (!allowedType.includes(file.type)) {
-                    message.textContent = 'Please select a valid image file (PNG, JPEG, PNG, GIF or WEBP).';
+                    message.textContent = 'Please select a valid image file (JPEG, PNG, GIF or WEBP).';
                     message.classList.remove('hidden');
                     input.value = '';
                     return;
