@@ -33,4 +33,23 @@
             </div>
         </div>
     </body>
+
+    <script>
+        function previewImage(input) {
+            const file = input.files[0];
+            const preview = document.getElementById('imagePreview');
+            const message = document.getElementById('previewMessage');
+
+            preview.classList.add('hiddden');
+            message.classList.add('hiddden');
+            message.textContent = '';
+
+            if (file) {
+                const allowedType = ['image/jpg', 'image/jpg', 'image/png', 'image/gif', 'image/webp'];
+                if (!allowedType.includes(file.type)) {
+                    message.textContent = 'allowedType'
+                }
+            }
+        }
+    </script>
 </html>
